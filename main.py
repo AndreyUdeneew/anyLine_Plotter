@@ -56,7 +56,8 @@ def my_processing():
     fileName = askopenfilename(parent=window)
     # print(fileName)
     # print(cv2.getBuildInformation())
-    img = cv2.imread(fileName)
+    # img = cv2.imread(fileName)
+    img = cv2.imdecode(np.fromfile(fileName, dtype=np.uint8), cv2.IMREAD_UNCHANGED)
     # Открываем окно
     cv2.namedWindow('Image')
     cv2.setMouseCallback('Image', draw_line)
